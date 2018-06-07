@@ -34,9 +34,12 @@ def get_loc(target, template):
         elif len(loc[1]) < 1:
             R -= (R - L) / 2
 
-    # for pt in zip(*loc[::-1]):
-    #     cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (7, 279, 151), 2)
-    #     cv2.imshow('Dectected', img_rgb)
-    #     cv2.waitKey(0)
-    #     cv2.destroyAllWindows()
+    for pt in zip(*loc[::-1]):
+        cv2.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (7, 279, 151), 2)
+        cv2.imshow('Dectected', img_rgb)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
     return loc[1][0]
+
+if __name__ == '__main__':
+    get_loc('target.jpg','template.png')
